@@ -1,0 +1,11 @@
+#!/bin/bash
+echo 3...
+sleep 1
+echo 2...
+sleep 1
+echo 1...
+sleep 1
+word=$(pbpaste)
+for (( i=0; i<${#word}; i++ )); do
+  echo "tell application \"System Events\" to keystroke \"${word:$i:1}\"" | osascript
+done
